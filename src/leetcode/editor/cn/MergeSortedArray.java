@@ -60,7 +60,7 @@ public class MergeSortedArray {
     public static void main(String[] args) {
         Solution solution = new MergeSortedArray().new Solution();
         // TO TEST
-
+        System.out.println(solution);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -87,4 +87,5 @@ public class MergeSortedArray {
             }
         }
     }
+}
 //leetcode submit region end(Prohibit modification and deletion)
