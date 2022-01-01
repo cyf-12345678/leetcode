@@ -60,34 +60,14 @@ public class MergeSortedArray {
     public static void main(String[] args) {
         Solution solution = new MergeSortedArray().new Solution();
         // TO TEST
-        class Solution {
-            public void merge(int[] nums1, int m, int[] nums2, int n) {
-                int index1 = 0; int index2 = 0;
-                int index;
-                int[] nums = new int[m + n];
-                while (index1 < m || index2 < n) {
-                    if (index1 == m) {
-                        index = nums2[index2++];
-                    } else if (index2 == n) {
-                        index = nums1[index1++];
-                    } else if (nums1[index1] < nums2[index2]) {
-                        index = nums1[index1++];
-                    } else {
-                        index = nums2[index2++];
-                    }
-                    nums[index1 + index2 -1] = index;
-                }
-                for (int i = 0; i != m + n; ++i) {
-                    nums1[i] = nums[i];
-                }
-            }
-        }
+
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public void merge(int[] nums1, int m, int[] nums2, int n) {
-            int index1 = 0; int index2 = 0;
+            int index1 = 0;
+            int index2 = 0;
             int index;
             int[] nums = new int[m + n];
             while (index1 < m || index2 < n) {
@@ -100,7 +80,7 @@ public class MergeSortedArray {
                 } else {
                     index = nums2[index2++];
                 }
-                nums[index1 + index2 -1] = index;
+                nums[index1 + index2 - 1] = index;
             }
             for (int i = 0; i != m + n; ++i) {
                 nums1[i] = nums[i];
