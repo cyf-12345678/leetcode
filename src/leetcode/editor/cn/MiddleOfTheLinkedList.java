@@ -64,5 +64,3 @@ public class MiddleOfTheLinkedList {
     }
 //leetcode submit region end(Prohibit modification and deletion)
 }
-
-}
