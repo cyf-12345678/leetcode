@@ -33,8 +33,8 @@ class Solution {
     public int firstUniqChar(String s) {
         // 找到不重复的字符返回其索引。不存在则返回-1
         // 使用hashmap记录字符出现的次数，如果次数为一直接返回
-        Map<Character, Integer> map = new LinkedHashMap<>();
         char[] chars = s.toCharArray();
+        Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < chars.length; i++) {
             if (map.containsKey(chars[i])) {
                 map.put(chars[i], map.get(chars[i]) + 1);
@@ -42,11 +42,10 @@ class Solution {
                 map.put(chars[i], 1);
             }
         }
-
         for (Character c : map.keySet()) {
             if (map.get(c) == 1) {
                 for (int i = 0; i < chars.length; i++) {
-                    if (chars[i] == c) return i;
+                    if (c == chars[i]) return i;
                 }
             }
         }
