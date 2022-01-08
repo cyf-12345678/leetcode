@@ -49,6 +49,7 @@ public class FloodFill {
 //            [2,2,0],
 //            [2,0,1]]
 
+            // 使用dfs深度优先遍历：判断坐标的像素值是否和newcolor相等
             return dfs(image, sr, sc, newColor, image[sr][sc]);
         }
 
@@ -59,12 +60,14 @@ public class FloodFill {
                 int temp = image[sr][sc];
                 image[sr][sc] = newColor;
                 dfs(image, sr + 1, sc, newColor, temp);
-                dfs(image, sr, sc + 1, newColor, temp);
                 dfs(image, sr - 1, sc, newColor, temp);
+                dfs(image, sr, sc + 1, newColor, temp);
                 dfs(image, sr, sc - 1, newColor, temp);
             }
+
             return image;
         }
+
 
     }
 //leetcode submit region end(Prohibit modification and deletion)
