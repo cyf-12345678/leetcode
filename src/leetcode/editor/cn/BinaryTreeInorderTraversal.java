@@ -78,10 +78,13 @@ public class BinaryTreeInorderTraversal {
      * }
      */
     class Solution {
+        List<Integer> result = new ArrayList<>();
+
         public List<Integer> inorderTraversal(TreeNode root) {
-            List<Integer> result = new ArrayList<>();
+            // 左中右
             if (root == null) return result;
-            Deque<TreeNode> stack = new LinkedList<>();
+
+            Stack<TreeNode> stack = new Stack<>();
             TreeNode node = root;
             while (node != null || !stack.isEmpty()) {
                 while (node != null) {
@@ -94,6 +97,7 @@ public class BinaryTreeInorderTraversal {
             }
             return result;
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
