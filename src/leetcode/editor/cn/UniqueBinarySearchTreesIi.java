@@ -69,15 +69,15 @@ public class UniqueBinarySearchTreesIi {
                 result.add(null);
                 return result;
             }
-
             for (int i = left; i <= right; i++) {
-                List<TreeNode> leftTree = generateTreesDeal(left, i - 1);
-                List<TreeNode> rightTree = generateTreesDeal(i + 1, right);
-                for (TreeNode treeNode : leftTree) {
-                    for (TreeNode node : rightTree) {
+                List<TreeNode> leftTrees = generateTreesDeal(left, i - 1);
+                List<TreeNode> rightTrees = generateTreesDeal(i + 1, right);
+
+                for (TreeNode leftTree : leftTrees) {
+                    for (TreeNode rightTree : rightTrees) {
                         TreeNode root = new TreeNode(i);
-                        root.left = treeNode;
-                        root.right = node;
+                        root.left = leftTree;
+                        root.right = rightTree;
                         result.add(root);
                     }
                 }
