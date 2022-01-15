@@ -61,15 +61,16 @@ public class ValidateBinarySearchTree {
      */
     class Solution {
         public boolean isValidBST(TreeNode root) {
-            return judgeIsvalidbst(root, null, null);
+            return isValidBSTDeal(root, null, null);
         }
 
-        private boolean judgeIsvalidbst(TreeNode root, TreeNode min, TreeNode max) {
+        private boolean isValidBSTDeal(TreeNode root, TreeNode min, TreeNode max) {
             if (root == null) return true;
             if (min != null && min.val >= root.val) return false;
             if (max != null && max.val <= root.val) return false;
-            return judgeIsvalidbst(root.left, min, root) && judgeIsvalidbst(root.right, root, max);
+            return isValidBSTDeal(root.left, min, root) && isValidBSTDeal(root.right, root, max);
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

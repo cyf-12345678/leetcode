@@ -34,24 +34,16 @@ public class UniqueBinarySearchTrees {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        int[][] nums;
-
         public int numTrees(int n) {
-            nums = new int[n + 1][n + 1];
-            return count(1, n);
-        }
-
-        private int count(int left, int right) {
-            if (left > right) return 1;
-            if (nums[left][right] != 0) return nums[left][right];
-            int result = 0;
-            for (int i = left; i <= right; i++) {
-                int leftCount = count(left, i - 1);
-                int rightCount = count(i + 1, right);
-                result += leftCount * rightCount;
+            int[] nums = new int[n + 1];
+            nums[0] = 1;
+            nums[1] = 1;
+            for (int i = 2; i <= n; i++) {
+                for (int j = 1; j <= i; j++) {
+                    nums[i] += nums[j - 1] * nums[i - j];
+                }
             }
-            nums[left][right] = result;
-            return result;
+            return nums[n];
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
