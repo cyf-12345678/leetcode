@@ -32,33 +32,54 @@ package leetcode.editor.cn;//给你二叉搜索树的根节点 root ，该树中
 // Related Topics 树 深度优先搜索 二叉搜索树 二叉树 👍 632 👎 0
 
 //Java：恢复二叉搜索树
-public class RecoverBinarySearchTree{
+public class RecoverBinarySearchTree {
     public static void main(String[] args) {
         Solution solution = new RecoverBinarySearchTree().new Solution();
         // TO TEST
     }
-    
-    //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public void recoverTree(TreeNode root) {
 
+    //leetcode submit region begin(Prohibit modification and deletion)
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        TreeNode first = null, second = null;
+        TreeNode prev = new TreeNode(Integer.MIN_VALUE);
+
+        public void recoverTree(TreeNode root) {
+            // 二叉树的根节点root， 不改变结构的情况下恢复树
+            recoverTreeDeal(root);
+            int temp = first.val;
+            first.val = second.val;
+            second.val = temp;
+        }
+
+        private void recoverTreeDeal(TreeNode root) {
+            if (root == null) return;
+            recoverTreeDeal(root.left);
+            if (root.val < prev.val) {
+                if (first == null) {
+                    first = prev;
+                }
+                second = root;
+            }
+            prev = root;
+            recoverTreeDeal(root.right);
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
