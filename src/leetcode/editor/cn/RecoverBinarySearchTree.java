@@ -56,27 +56,28 @@ public class RecoverBinarySearchTree {
      * }
      */
     class Solution {
-        TreeNode first = null, second = null;
-        TreeNode prev = new TreeNode(Integer.MIN_VALUE);
+        TreeNode firstMax = null, lastMin = null;
+        TreeNode pre = new TreeNode(Integer.MIN_VALUE);
 
         public void recoverTree(TreeNode root) {
             // 二叉树的根节点root， 不改变结构的情况下恢复树
             recoverTreeDeal(root);
-            int temp = first.val;
-            first.val = second.val;
-            second.val = temp;
+            int temp = firstMax.val;
+            firstMax.val = lastMin.val;
+            lastMin.val = temp;
         }
 
         private void recoverTreeDeal(TreeNode root) {
             if (root == null) return;
+
             recoverTreeDeal(root.left);
-            if (root.val < prev.val) {
-                if (first == null) {
-                    first = prev;
+            if (root.val < pre.val) {
+                if (firstMax == null) {
+                    firstMax = pre;
                 }
-                second = root;
+                lastMin = root;
             }
-            prev = root;
+            pre = root;
             recoverTreeDeal(root.right);
         }
     }
