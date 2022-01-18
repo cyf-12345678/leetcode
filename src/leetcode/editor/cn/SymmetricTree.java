@@ -31,41 +31,41 @@ package leetcode.editor.cn;//给你一个二叉树的根节点 root ， 检查�
 // Related Topics 树 深度优先搜索 广度优先搜索 二叉树 👍 1697 👎 0
 
 //Java：对称二叉树
-public class SymmetricTree{
+public class SymmetricTree {
     public static void main(String[] args) {
         Solution solution = new SymmetricTree().new Solution();
         // TO TEST
     }
-    
+
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
-        return checkSbt(root.left, root.right);
 
-    }
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        public boolean isSymmetric(TreeNode root) {
+            if (root == null) return true;
+            return isSymmetricDeal(root.left, root.right);
+        }
 
-    private boolean checkSbt(TreeNode left, TreeNode right) {
-        if (left == null || right == null) return left == right;
-        if (left.val != right.val) return false;
-        return checkSbt(left.right, right.left) && checkSbt(left.left, right.right);
+        private boolean isSymmetricDeal(TreeNode left, TreeNode right) {
+            if (left == null || right == null) return left == right;
+            if (left.val != right.val) return false;
+            return isSymmetricDeal(left.left, right.right) && isSymmetricDeal(left.right, right.left);
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

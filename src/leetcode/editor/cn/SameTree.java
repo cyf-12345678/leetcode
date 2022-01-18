@@ -61,6 +61,7 @@ public class SameTree {
      */
     class Solution {
         public boolean isSameTree(TreeNode p, TreeNode q) {
+            // p q 检验两树是否相同
             if (p == null && q == null) return true;
             if (p == null || q == null) return false;
             if (p.val != q.val) return false;

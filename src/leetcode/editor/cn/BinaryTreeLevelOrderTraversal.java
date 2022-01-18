@@ -60,23 +60,25 @@ public class BinaryTreeLevelOrderTraversal {
      * }
      */
     class Solution {
+
         public List<List<Integer>> levelOrder(TreeNode root) {
-            List<List<Integer>> result = new ArrayList<>();
+            // 二叉树的节点root，返回层序遍历
+            List<List<Integer>> result = new LinkedList<>();
             if (root == null) return result;
-            // 存储每行的节点
-            Queue<TreeNode> q = new LinkedList<>();
-            q.offer(root);
-            while (!q.isEmpty()) {
-                int count = q.size();
+
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                int count = queue.size();
                 List<Integer> path = new LinkedList<>();
                 for (int i = 0; i < count; i++) {
-                    TreeNode cur = q.poll();
-                    path.add(cur.val);
-                    if (cur.left != null) {
-                        q.offer(cur.left);
+                    TreeNode node = queue.poll();
+                    path.add(node.val);
+                    if (node.left != null) {
+                        queue.offer(node.left);
                     }
-                    if (cur.right != null) {
-                        q.offer(cur.right);
+                    if (node.right != null) {
+                        queue.offer(node.right);
                     }
                 }
                 result.add(path);
