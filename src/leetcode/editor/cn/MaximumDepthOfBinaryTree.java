@@ -16,6 +16,10 @@ package leetcode.editor.cn;//给定一个二叉树，找出其最大深度。
 // 返回它的最大深度 3 。 
 // Related Topics 树 深度优先搜索 广度优先搜索 二叉树 👍 1084 👎 0
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 //Java：二叉树的最大深度
 public class MaximumDepthOfBinaryTree {
     public static void main(String[] args) {
@@ -41,14 +45,24 @@ public class MaximumDepthOfBinaryTree {
      * }
      */
     class Solution {
+        int result = 0;
+        int path = 0;
         public int maxDepth(TreeNode root) {
-            if (root == null) {
-                return 0;
-            } else {
-                int leftDepth = maxDepth(root.left);
-                int rightDepth = maxDepth(root.right);
-                return Math.max(leftDepth, rightDepth) + 1;
-            }
+//            if (root == null) return 0;
+//            int left = maxDepth(root.left);
+//            int right = maxDepth(root.right);
+//            return Math.max(left, right) + 1;
+            maxDepthDeal(root);
+            return result;
+        }
+
+        private void maxDepthDeal(TreeNode root) {
+            if (root == null) return;
+            path++;
+            result = Math.max(result, path);
+            maxDepthDeal(root.left);
+            maxDepthDeal(root.right);
+            path--;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
