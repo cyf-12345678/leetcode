@@ -69,16 +69,15 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 
             Queue<TreeNode> queue = new LinkedList<>();
             queue.offer(root);
-            boolean flag = false;
+            boolean flag = true;
             while (!queue.isEmpty()) {
-                int count = queue.size();
                 LinkedList<Integer> path = new LinkedList<>();
+                int count = queue.size();
                 for (int i = 0; i < count; i++) {
                     TreeNode node = queue.poll();
-                    if (flag == true) {
+                    if (flag) {
                         path.addFirst(node.val);
-                    }
-                    if (flag == false) {
+                    } else {
                         path.addLast(node.val);
                     }
                     if (node.left != null) {
@@ -88,7 +87,6 @@ public class BinaryTreeZigzagLevelOrderTraversal {
                         queue.offer(node.right);
                     }
                 }
-                flag = !flag;
                 result.add(path);
             }
             return result;
