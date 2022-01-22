@@ -65,7 +65,6 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
 
             // 3, 9 , 20, 15, 7      9, 3, 15, 20, 7
             return buildTreeDeal(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
-
         }
 
         private TreeNode buildTreeDeal(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd) {
@@ -74,15 +73,16 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
             int rootValue = preorder[preStart];
             int index = 0;
             for (int i = inStart; i <= inEnd; i++) {
-                if (inorder[i] == rootValue) {
+                if (rootValue == inorder[i]) {
                     index = i;
                     break;
                 }
             }
-            int leftSize = index - inStart;
+            int leftLength = index - inStart;
             TreeNode root = new TreeNode(rootValue);
-            root.left = buildTreeDeal(preorder, preStart + 1, preStart + leftSize, inorder, inStart, index - 1);
-            root.right = buildTreeDeal(preorder, preStart + leftSize + 1, preEnd, inorder, index + 1, inEnd);
+
+            root.left = buildTreeDeal(preorder, preStart + 1, preStart + leftLength, inorder, inStart, index - 1);
+            root.right = buildTreeDeal(preorder, preStart + leftLength + 1, preEnd, inorder, index + 1, inEnd);
             return root;
         }
     }
