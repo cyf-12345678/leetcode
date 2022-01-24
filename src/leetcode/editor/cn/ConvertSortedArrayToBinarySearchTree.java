@@ -63,15 +63,16 @@ public class ConvertSortedArrayToBinarySearchTree {
         }
 
         private TreeNode sortedArrayToBSTDeal(int[] nums, int start, int end) {
-            if (start > end) {
-                return null;
-            }
+            if (start > end) return null;
+
             int mid = (start + end) / 2;
             TreeNode root = new TreeNode(nums[mid]);
             root.left = sortedArrayToBSTDeal(nums, start, mid - 1);
             root.right = sortedArrayToBSTDeal(nums, mid + 1, end);
             return root;
         }
+
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
