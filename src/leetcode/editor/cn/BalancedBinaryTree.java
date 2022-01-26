@@ -72,10 +72,11 @@ public class BalancedBinaryTree {
             }
         }
 
-        private int isBalancedDeal(TreeNode left) {
-            if (left == null) return 0;
-
-            return Math.max(isBalancedDeal(left.left), isBalancedDeal(left.right)) + 1;
+        private int isBalancedDeal(TreeNode node) {
+            if (node == null) {
+                return 0;
+            }
+            return Math.max(isBalancedDeal(node.left), isBalancedDeal(node.right)) + 1;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
