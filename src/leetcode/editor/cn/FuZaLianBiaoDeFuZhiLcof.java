@@ -85,9 +85,10 @@ class Node {
             for (Node node = head; node != null; node = node.next) {
                 map.put(node, new Node(node.val));
             }
-            for (Node node = head; node != null; node = node.next) {
-                map.get(node).next = map.get(node.next);
-                map.get(node).random = map.get(node.random);
+
+            for (Node cur = head; cur != null; cur = cur.next) {
+                map.get(cur).next = map.get(cur.next);
+                map.get(cur).random = map.get(cur.random);
             }
             return map.get(head);
         }

@@ -39,7 +39,7 @@ public class FanZhuanLianBiaoLcof {
      */
     class Solution {
         public ListNode reverseList(ListNode head) {
-            if (head == null) return null;
+            if (head == null || head.next == null) return head;
 
             ListNode pre = null, cur = head, next = null;
             while (cur != null) {

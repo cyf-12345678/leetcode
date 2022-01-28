@@ -38,11 +38,12 @@ public class CongWeiDaoTouDaYinLianBiaoLcof {
             ListNode node = head;
             int len = 0;
             while (node != null) {
-                len++;
+                ++len;
                 node = node.next;
             }
-            int[] nums = new int[len];
+
             node = head;
+            int[] nums = new int[len];
             for (int i = len - 1; i >= 0; --i) {
                 nums[i] = node.val;
                 node = node.next;
