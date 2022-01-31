@@ -41,15 +41,14 @@ public class ShuZuZhongZhongFuDeShuZiLcof {
 //            }
 //            return x;
 
-            int[] arr = new int[nums.length];
+            int[] array =  new int[nums.length];
             for (int i = 0; i < nums.length; i++) {
-                arr[nums[i]]++;
-                if (arr[nums[i]] > 1) {
+                ++array[nums[i]];
+                if (array[nums[i]] > 1) {
                     return nums[i];
                 }
             }
             return -1;
-
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

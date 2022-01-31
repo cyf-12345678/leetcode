@@ -49,22 +49,22 @@ public class ZaiPaiXuShuZuZhongChaZhaoShuZiLcof {
 //            }
 //            return count;
 
+            // 二分查找法，用比目标值大的第一个数出现的位置减去目标值第一次出现的位置
+            if (nums.length == 0) return 0;
             return searchDeal(nums, target + 1) - searchDeal(nums, target);
-
         }
 
         private int searchDeal(int[] nums, int target) {
-
             int left = 0, right = nums.length;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                if (target <= nums[mid]) {
-                    right = mid;
-                } else if (target > nums[mid]) {
+                if (target > nums[mid]) {
                     left = mid + 1;
+                } else {
+                    right = mid;
                 }
             }
-            return left;
+            return right;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
