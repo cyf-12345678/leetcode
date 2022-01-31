@@ -44,12 +44,15 @@ public class ErWeiShuZuZhongDeChaZhaoLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean findNumberIn2DArray(int[][] matrix, int target) {
-            for (int i = 0; i < matrix.length; i++) {
-                for (int j = 0; j < matrix[i].length; j++) {
-                    if (target == matrix[i][j]) {
-                        return true;
-                    }
-                }
+            if (matrix == null || matrix.length == 0) return false;
+            int row = matrix.length, col = matrix[0].length;
+            int left = 0, right = col - 1;
+            while (left < row && right >= 0) {
+                if (matrix[left][right] < target) {
+                    left++;
+                } else if (matrix[left][right] > target) {
+                    right--;
+                } else return true;
             }
             return false;
         }
