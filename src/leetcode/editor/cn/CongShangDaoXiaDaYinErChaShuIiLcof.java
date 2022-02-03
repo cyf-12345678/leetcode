@@ -61,11 +61,12 @@ public class CongShangDaoXiaDaYinErChaShuIiLcof {
 
         public List<List<Integer>> levelOrder(TreeNode root) {
             if (root == null) return result;
+
             Queue<TreeNode> queue = new LinkedList<>();
             queue.offer(root);
             while (!queue.isEmpty()) {
-                List<Integer> list = new ArrayList<>();
                 int count = queue.size();
+                List<Integer> list = new LinkedList<>();
                 for (int i = 0; i < count; i++) {
                     TreeNode node = queue.poll();
                     list.add(node.val);
