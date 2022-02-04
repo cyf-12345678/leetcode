@@ -53,19 +53,19 @@ public class ShuDeZiJieGouLcof {
      */
     class Solution {
         public boolean isSubStructure(TreeNode A, TreeNode B) {
-            if (A == null || B == null) {
-                return false;
-            }
-            if (A.val == B.val && checkSubTree(A, B)) {
-                return true;
-            }
+            if (A == null || B == null) return false;
+
+            if (A.val == B.val && check(A, B)) return true;
+
             return isSubStructure(A.left, B) || isSubStructure(A.right, B);
         }
 
-        public boolean checkSubTree(TreeNode a, TreeNode b) {
+        private boolean check(TreeNode a, TreeNode b) {
             if (a == null || b == null) return b == null;
+
             if (a.val != b.val) return false;
-            return checkSubTree(a.left, b.left) && checkSubTree(a.right, b.right);
+
+            return check(a.left, b.left) && check(a.right, b.right);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
