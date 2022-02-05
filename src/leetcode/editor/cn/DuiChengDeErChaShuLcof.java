@@ -59,14 +59,18 @@ public class DuiChengDeErChaShuLcof {
         public boolean isSymmetric(TreeNode root) {
             // root.left = root.right;
             if (root == null) return true;
+
             return isSymmetricDeal(root.left, root.right);
         }
 
         private boolean isSymmetricDeal(TreeNode left, TreeNode right) {
             if (left == null || right == null) return left == right;
+
             if (left.val != right.val) return false;
+
             return isSymmetricDeal(left.left, right.right) && isSymmetricDeal(left.right, right.left);
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

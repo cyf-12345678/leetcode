@@ -63,9 +63,9 @@ public class ErChaShuDeJingXiangLcof {
         private void dfs(TreeNode root) {
             if (root == null) return;
 
-            TreeNode temp = root.left;
+            TreeNode node = root.left;
             root.left = root.right;
-            root.right = temp;
+            root.right = node;
 
             dfs(root.left);
             dfs(root.right);
