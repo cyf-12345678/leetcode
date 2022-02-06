@@ -32,7 +32,6 @@ import java.util.Stack;
 //Java：用两个栈实现队列
 public class YongLiangGeZhanShiXianDuiLieLcof {
     public static void main(String[] args) {
-        Solution solution = new YongLiangGeZhanShiXianDuiLieLcof().new Solution();
         // TO TEST
     }
 

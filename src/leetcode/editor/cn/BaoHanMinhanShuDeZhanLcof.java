@@ -32,7 +32,6 @@ import java.util.Stack;
 //Java：包含min函数的栈
 public class BaoHanMinhanShuDeZhanLcof {
     public static void main(String[] args) {
-        Solution solution = new BaoHanMinhanShuDeZhanLcof().new Solution();
         // TO TEST
     }
 
