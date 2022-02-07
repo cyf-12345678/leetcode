@@ -45,15 +45,14 @@ public class FeiBoNaQiShuLieLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int fib(int n) {
-            final int x = 1000000007;
             if (n < 2) return n;
-            int p = 0, q = 0, r = 1;
+            int a = 0, b = 0, sum = 1;
             for (int i = 2; i <= n; i++) {
-                p = q;
-                q = r;
-                r = (p + q) % x;
+                a = b;
+                b = sum;
+                sum = (a + b) % 1000000007;
             }
-            return r;
+            return sum;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

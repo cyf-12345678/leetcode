@@ -46,17 +46,9 @@ public class LianXuZiShuZuDeZuiDaHeLcof {
                 } else {
                     sum += nums[i];
                 }
-                max = Math.max(max, sum);
+                max = Math.max(sum, max);
             }
             return max;
-
-//            int min = nums[0];
-//            for (int i = 0; i < nums.length; i++) {
-//                if (nums[i] < nums[0]) {
-//                    min = nums[i];
-//
-//                }
-//            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
