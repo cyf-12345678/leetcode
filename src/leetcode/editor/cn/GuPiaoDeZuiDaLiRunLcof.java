@@ -29,18 +29,38 @@ package leetcode.editor.cn;//假设把某股票的价格按照时间先后顺序
 // Related Topics 数组 动态规划 👍 210 👎 0
 
 //Java：股票的最大利润
-public class GuPiaoDeZuiDaLiRunLcof{
+public class GuPiaoDeZuiDaLiRunLcof {
     public static void main(String[] args) {
         Solution solution = new GuPiaoDeZuiDaLiRunLcof().new Solution();
         // TO TEST
     }
-    
-    //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int maxProfit(int[] prices) {
 
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int maxProfit(int[] prices) {
+//            int max = 0;
+//            for (int i = 0; i < prices.length; i++) {
+//                for (int j = i + 1; j < prices.length; j++) {
+//                    int profit = prices[j] - prices[i];
+//                    if (profit > max) {
+//                        max = profit;
+//                    }
+//                }
+//            }
+//            return max;
+
+            int max = 0;
+            int min = Integer.MAX_VALUE;
+            for (int i = 0; i < prices.length; i++) {
+                if (prices[i] < min) {
+                    min = prices[i];
+                } else if (prices[i] - min > max) {
+                    max = Math.max(max, prices[i] - min);
+                }
+            }
+            return max;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
