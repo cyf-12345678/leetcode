@@ -34,7 +34,22 @@ public class LiWuDeZuiDaJieZhiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxValue(int[][] grid) {
-
+            int row = grid.length, col = grid[0].length;
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    if (i == 0 && j == 0) {
+                        continue;
+                    }
+                    if (j == 0) {
+                        grid[i][j] += grid[i - 1][0];
+                    } else if (i == 0) {
+                        grid[i][j] += grid[i][j - 1];
+                    } else {
+                        grid[i][j] += Math.max(grid[i][j - 1], grid[i - 1][j]);
+                    }
+                }
+            }
+            return grid[row - 1][col - 1];
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
