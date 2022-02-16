@@ -18,6 +18,8 @@ package leetcode.editor.cn;//给定一个数字，我们按照如下规则把它
 // 
 // Related Topics 字符串 动态规划 👍 360 👎 0
 
+import java.util.HashMap;
+
 //Java：把数字翻译成字符串
 public class BaShuZiFanYiChengZiFuChuanLcof {
     public static void main(String[] args) {
@@ -28,9 +30,11 @@ public class BaShuZiFanYiChengZiFuChuanLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int translateNum(int num) {
+
+            // 状态转移方程 dp[i] = dp[i - 1] + dp[i - 2];
             String src = String.valueOf(num);
             int p = 0, q = 0, r = 1;
-            for (int i = 0; i < src.length(); ++i) {
+            for (int i = 0; i < src.length(); i++) {
                 p = q;
                 q = r;
                 r = 0;
